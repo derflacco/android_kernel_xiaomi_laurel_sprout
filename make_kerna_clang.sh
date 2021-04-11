@@ -32,6 +32,7 @@ defconfig=/vendor/fenix_defconfig
 
 PATH="/home/derflacco/toolchains/proton-clang-20210320/bin:$PATH"
 export CROSS_COMPILE=aarch64-linux-gnu-
+export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 make $defconfig CC=clang O=output/
 
 make -j$(nproc --all) CC="ccache clang -fcolor-diagnostics -Qunused-arguments" O=output/
@@ -43,7 +44,7 @@ make_zip()
                 #mkdir dtbs
                 #cp $KERNEL_DIR/output/arch/arm64/boot/Image.gz $REPACK_DIR/kernel/
                 rm $KERNEL_DIR/output/arch/arm64/boot/dts/qcom/modules.order
-                #cp $KERNEL_DIR/output/arch/arm64/boot/dts/qcom/sd* $REPACK_DIR/dtbs/
+                #cp $KERNEL_DIR/output/arch/arm64/boot/dts/qcCROSS_COMPILE_ARM32=arm-linux-gnueabiom/sd* $REPACK_DIR/dtbs/
                 cp $KERNEL_DIR/output/arch/arm64/boot/Image.gz-dtb $REPACK_DIR/
                 cp $KERNEL_DIR/output/arch/arm64/boot/dtbo.img $REPACK_DIR/
                 cp $KERNEL_DIR/output/arch/arm64/boot/dts/qcom/trinket.dtb $REPACK_DIR/
