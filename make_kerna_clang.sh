@@ -32,6 +32,7 @@ defconfig=/vendor/fenix_defconfig
 
 PATH="/home/derflacco/toolchains/proton-clang-20210320/bin:$PATH"
 export CROSS_COMPILE=aarch64-linux-gnu-
+export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
 make $defconfig CC=clang O=output/
 
 make -j$(nproc --all) CC="ccache clang -fcolor-diagnostics -Qunused-arguments" O=output/
